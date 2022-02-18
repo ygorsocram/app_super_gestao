@@ -24,10 +24,10 @@ Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class,'sobre
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato']);
 
 Route::get(
-    '/contato/{nome}/{categoria}/{assunto}/{mensagem}', 
-    function(string $nome, string $categoria, string $assunto, string $mensagem){
-        echo "Olá $nome - $categoria - $assunto - $mensagem";
+    '/contato/{nome}/{categoria_id?}', 
+    function(string $nome, int $categoria_id = 1){
+        echo "Olá $nome - $categoria_id";
     }
-);
+)->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');
 
 //Route::ACAOHTTP(URL, FUNCAO DE RETORNO)
