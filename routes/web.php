@@ -18,16 +18,12 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/',[\App\Http\Controllers\PrincipalController::class,'principal']);
-
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class,'sobreNos']);
-
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato']);
 
-Route::get(
-    '/contato/{nome}/{categoria_id?}', 
-    function(string $nome, int $categoria_id = 1){
-        echo "Olá $nome - $categoria_id";
-    }
-)->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');
+Route::get('/login', function(){ return 'Login'; });
+Route::get('/clientes', function(){ return 'Clientes'; });
+Route::get('/fornecedores', function(){ return 'Fornecedores'; });
+Route::get('/produtos', function(){ return 'Produtos'; });
 
 //Route::ACAOHTTP(URL, FUNCAO DE RETORNO)
